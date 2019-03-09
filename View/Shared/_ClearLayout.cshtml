@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Futbolizando fútbol</title>
+        <link href="https://png.icons8.com/doodle/40/000000/football2.png" rel="icon" />
+        @Styles.Render("~/bundles/Content/Bootstrap")
+        @Styles.Render("~/bundles/Content/Custom")
+    </head>
+    <body>
+        <div>
+            @RenderBody()
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryunob")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/ajax")
+        @Scripts.Render("~/bundles/moment")
+        @RenderSection("Login", required: false)
+        @RenderSection("EditDescriptionManager", required: false)
+        @RenderSection("ForgotPassword", required: false)
+        @RenderSection("ResetPasswordModal", required: false)
+        @RenderSection("SettingRS", required: false)
+        @RenderSection("StatusToastr", required: false)
+        @RenderSection("AddComment", required: false)
+    </body>
+</html>
