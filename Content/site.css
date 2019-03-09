@@ -1,0 +1,183 @@
+.margin-top-32 {
+    margin-top: 32px !important
+}
+
+.modal-content-login{
+    height: 420px!important;
+}
+
+.width-100 {
+    width: 100% !important
+}
+
+.display-block {
+    display: block !important
+}
+
+.black-color
+    color: var(--black) !important
+}
+
+.padding-0 {
+    padding: 0 !important
+}
+
+.pt-8 {
+    padding-top: 8px !important
+}
+
+.pb-8 {
+    padding-bottom: 8px !important
+}
+
+.ps-8 {
+    padding: 0 8px !important
+}
+
+.border-radius-2 {
+    border-radius: 2px !important
+}
+
+.input-transition {
+    transition: border-width .2s ease
+}
+
+.border-left-width-focus-50:focus {
+    border-left-width: 50px
+}
+
+.dark-red-color-border-focus:focus {
+    border-color: var(--red) !important;
+    outline: 0
+}
+
+.dark-red-box-shadow:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(146,56,56,.41) !important
+}
+
+.border-solid-input-1 {
+    border: 1px solid #ddd
+}
+
+.glyphicon-user-login, .glyphicon-envelope-login, .glyphicon-eye-close-login {
+    left: -4px;
+    top: -11px
+}
+
+.no-text-decoration {
+    text-decoration: none !important
+}
+
+.no-border {
+    border: none !important
+}
+
+.white-color {
+    color: var(--white) !important
+}
+
+.dark-red-color {
+    color: var(--red) !important
+}
+
+.position-absolute {
+    position: absolute !important
+}
+
+.glyphicon-transition {
+    transition: all .1s ease-in
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(359deg);
+    }
+}
+
+.loadingDev, .loadingAdmin, .loadingLogin {
+    border-radius: 2px 2px 5px 5px;
+    width: 90%;
+    max-width: 320px;
+    background: #ffffff;
+    position: relative;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.loginDev.loadingDev button, .loginAdmin.loadingAdmin button, .login.loadingLogin button {
+    max-height: 100% !important;
+    padding-top: 50px !important;
+    font-size: 18px !important;
+    font-weight: 700;
+}
+
+.loginDev.loadingDev button .spinner, .loginAdmin.loadingAdmin button .spinner, .login.loadingLogin button .spinner {
+    opacity: 1!important;
+    top: 36%!important;
+}
+
+.loginDev.okDev button, .loginAdmin.okAdmin button, .login.okLogin button {
+    background-color: var(--green)!important;
+}
+
+.loginDev.okDev button .spinner, .loginAdmin.okAdmin button .spinner, .login.okLogin button .spinner {
+    border-radius: 0!important;
+    border-top-color: transparent!important;
+    border-right-color: transparent!important;
+    height: 20px!important;
+    animation: none!important;
+    transform: rotateZ(-45deg)!important;
+}
+
+.loginDev button, .loginAdmin button, .login button {
+    width: 100%!important;
+    height: 100%!important;
+    padding: 10px 10px!important;
+    background: var(--red) !important;
+    color: #fff!important;
+    display: block!important;
+    border: none!important;
+    margin-top: 20px!important;
+    position: absolute!important;
+    left: 0!important;
+    bottom: 0!important;
+    max-height: 60px!important;
+    border: 0px solid rgba(0, 0, 0, 0.1)!important;
+    border-radius: 0 0 2px 2px!important;
+    transform: rotateZ(0deg)!important;
+    transition: all 0.1s ease-out!important;
+    border-bottom-width: 7px!important;
+}
+
+.loginDev button .spinner, .loginAdmin button .spinner, .login button .spinner {
+    display: block!important;
+    width: 70px!important;
+    height: 70px!important;
+    position: absolute!important;
+    border: 4px solid #ffffff!important;
+    border-top-color: rgba(255, 255, 255, 0.3)!important;
+    border-radius: 100%!important;
+    left: 48%!important;
+    top: 0!important;
+    opacity: 0!important;
+    margin-left: -20px!important;
+    margin-top: -20px!important;
+    animation: spinner 0.6s infinite linear!important;
+    transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease!important;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2)!important;
+}
+
+.loginDev:not(.loadingDev) button:hover, .loginAdmin:not(.loadingAdmin) button:hover, .login:not(.loadingLogin) button:hover {
+    box-shadow: 0px 1px 3px var(--red) !important;
+}
+
+.loginDev:not(.loadingDev) button:focus, .loginAdmin:not(.loadingAdmin) button:focus, .login:not(.loadingLogin) button:focus {
+    border-bottom-width: 4px !important;
+}
+
+.modal-title, body, kbd, conf-title {
+    font-family: Ubuntu !important
+}
