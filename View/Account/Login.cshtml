@@ -1,4 +1,5 @@
-@model Futbolizando_Fútbol_Blog.Models.LoginViewModel
+﻿@model Futbolizando_Fútbol_Blog.Models.LoginViewModel
+
 @{
     ViewBag.Title = "Iniciar sesión";
     Layout = "~/Views/Shared/_ClearLayout.cshtml";
@@ -6,129 +7,130 @@
 
 <div class="nav-jumbotron modal-login">
     <div id="formLogin">
-        @Html.AntiForgeryToken()
-        <form class="login form-horizontal" role="form">
-            <div class="modal fade margin-top-32" id="login" role="dialog" data-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content modal-content-login">
-                        <div class="modal-header no-border padding-bottom-0">
-                            <a href="@Url.Action("Index", "Home")" class="close">
-                                <span aria-hidden="true">&times;</span>
-                            </a>
-                            <h4 class="modal-title"><b>Login de Administrador</b></h4>
-                        </div>
-                        <div class="modal-body" id="frmLogin">
-                            <div class="form-group">
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger pb-8" })
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.TextBoxFor(m => m.Username, new { @class = "field width-100 display-block black-color pt-8 pb-8 ps-8 border-radius-2 input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow border-solid-input-1", placeholder = "Usuario", required = "required", autofocus = "autofocus", id = "Username" })
-                                    <span class="glyphicon glyphicon-user glyphicon-user-login white-color position-absolute glyphicon-transition"></span>
+        <div class="loginForm">
+            @Html.AntiForgeryToken()
+            <form class="formLoginAdmin" role="form">
+                <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold">Ingresar como administrador</h5>
+                                <a href="@Url.Action("Index", "Home")" class="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="col-xl-12">
+                                        @Html.TextBoxFor(m => m.Username, new { @class = "field form-control input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow", @type = "text", placeholder = "Usuario", required = "required", id = "Username" })
+                                        <span class="glyphicon glyphicon-user glyphicon-user-form position-absolute glyphicon-transition"></span>
+                                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger py-3" })
+                                    </div>
                                 </div>
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger pt-16 pb-16" })
+                                <div class="form-group">
+                                    <div class="col-xl-12">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "field form-control input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow", @type = "email", placeholder = "Correo electrónico", required = "required", id = "Email" })
+                                        <span class="glyphicon glyphicon-envelope glyphicon-envelope-form position-absolute glyphicon-transition"></span>
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger py-3" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xl-12">
+                                        @Html.PasswordFor(m => m.Password, new { @id = "passInput", @class = "field form-control input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow", @type = "password", placeholder = "Contraseña", required = "required" })
+                                        <span class="glyphicon glyphicon-eye-close glyphicon-eye-close-form position-absolute glyphicon-transition"></span>
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger py-3" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xl-12">
+                                        @Html.PasswordFor(m => m.RepeatPassword, new { @id = "repeatpassInput", @class = "field form-control input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow", @type = "password", placeholder = "Repetir contraseña", required = "required" })
+                                        <span class="glyphicon glyphicon-eye-close glyphicon-eye-close-form position-absolute glyphicon-transition"></span>
+                                        @Html.ValidationMessageFor(m => m.RepeatPassword, "", new { @class = "text-danger py-3" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xl-12">
+                                        <text id="errors" class="text-danger py-3"></text>
+                                    </div>
+                                </div>
+                                <div id="forgotPassword" class="form-group text-right pb-3">
+                                    <div class="col-xl-12">
+                                        @Html.ActionLink("¿Olvidaste la contraseña?", "ForgotPassword", null, new { @class = "text-decoration-none dark-red-color forgot-Pass" })
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.TextBoxFor(m => m.Email, new { @class = "field width-100 display-block black-color pt-8 pb-8 ps-8 border-radius-2 input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow border-solid-input-1", placeholder = "Correo electrónico", required = "required", id = "Email" })
-                                    <span class="glyphicon glyphicon-envelope glyphicon-envelope-login white-color position-absolute glyphicon-transition"></span>
-                                </div>
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger pt-16 pb-16" })
-                                </div>
+                            <div class="modal-footer mt-2">
+                                <button tabindex="5" class="btn-block cursor-pointer" type="submit">
+                                    <div class="icons">
+                                    </div>
+                                    <text class="textButton font-weight-bold">Iniciar</text>
+                                </button>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.PasswordFor(m => m.Password, new { @id = "passInput", @class = "field width-100 display-block black-color pt-8 pb-8 ps-8 border-radius-2 input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow border-solid-input-1", placeholder = "Contraseña", required = "required" })
-                                    <span class="glyphicon glyphicon-eye-close glyphicon-eye-close-login white-color position-absolute glyphicon-transition"></span>
-                                </div>
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger pt-16 pb-16" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.PasswordFor(m => m.RepeatPassword, new { @id = "repeatpassInput", @class = "field width-100 display-block black-color pt-8 pb-8 ps-8 border-radius-2 input-transition border-left-width-focus-50 dark-red-color-border-focus dark-red-box-shadow border-solid-input-1", placeholder = "Repetir contraseña", required = "required" })
-                                    <span class="glyphicon glyphicon-eye-close glyphicon-eye-close-login white-color position-absolute glyphicon-transition"></span>
-                                </div>
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.ValidationMessageFor(m => m.RepeatPassword, "", new { @class = "text-danger pt-16 pb-16" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    <text id="errors" class="text-danger pt-16 pb-16"></text>
-                                </div>
-                            </div>
-                            <div id="forgotPassword" class="form-group text-align-right">
-                                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                                    @Html.ActionLink("¿Olvidaste la contraseña?", "ForgotPassword", null, new { @class = "no-text-decoration dark-red-color forgot-Pass" })
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer no-border padding-0">
-                            <button tabindex="4">
-                                <i class="spinner"></i>
-                                <span class="stateLogin">Iniciar sesión</span>
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
 @section Login {
 
     <script type="text/javascript">
+
         // Show modal login
-        $("#login").modal('show');
+        $("#login").modal("show");
 
         var accountDto = {};
         var workingLogin = false;
 
         // Load record Note
         function loadAccount() {
-            accountDto.userName = $('#Username').val();
+            accountDto.UserName = $('#Username').val();
             accountDto.Email = $('#Email').val();
             accountDto.Password = $('#passInput').val();
             accountDto.RepeatPassword = $('#repeatpassInput').val();
+            accountDto.ProviderPassword = "login";
             var textErrors = document.getElementById("errors");
             textErrors.innerText = "";
         }
 
-        // Reset form login
-        function resetFormLogin() {
-            $('.login').each(function () {
-                this.reset();
-            });
-        }
-
-        $('.login').on("submit", function (e) {
+        $('.loginForm').on("submit", function (e) {
             e.preventDefault();
             if (workingLogin) return;
             workingLogin = true;
             loadAccount();
-            if (accountDto.userName !== "" && accountDto.Email !== "" && accountDto.Password !== "" && accountDto.RepeatPassword !== "") {
+            if (accountDto.UserName !== "" && accountDto.Email !== "" && accountDto.Password !== "" && accountDto.RepeatPassword !== "") {
                 var buttonLogin = this;
-                var stateLogin = document.getElementsByClassName("stateLogin")[0];
+                var spinnerContain = '<div class="text-center spinnerDiv"><div class="spin" role="status"></div></div>';
+                var closeContain = '<div class="text-center closeDiv" style="margin-top:-55px!important"><div class="closeLogin">&times;</div></div>';
+                var okContaint = '<div class="text-center okDiv" style="margin-top:-55px!important"><span class="glyphicon glyphicon-ok glyphicon-okForm"></span></div>';
+                var okProfile = '<div class="text-center okDiv" style="margin-top:-55px!important"><span class="glyphicon glyphicon-user glyphicon-user-login"></span></div>';
+                var stateLogin = document.getElementsByClassName("textButton")[0];
+                var icons = document.getElementsByClassName("icons")[0];
                 $(buttonLogin).addClass('loadingLogin');
                 $(stateLogin).html('Verificando datos');
+                $(icons).append(spinnerContain);
+                var spin = document.getElementsByClassName("spin")[0];
+                $(spin).addClass('spinner-grow spinner-grow-lg mb-4');
+                var spinner = document.getElementsByClassName("spinnerDiv")[0];
                 $.ajax({
-                    url: "/api/accounts",
+                    url: "/api/accounts/accessasync",
                     method: "POST",
                     data: JSON.stringify(accountDto),
                     contentType: "application/json; charset=utf-8",
-                    success: function (resultEmail) {
+                    success: function (resultLog) {
+                        $(spinner).remove();
                         $(buttonLogin).addClass('okLogin');
+                        $(icons).append(okContaint);
+                        var okDiv = document.getElementsByClassName("okDiv")[0];
                         $(stateLogin).html('Bienvenido!');
                         setTimeout(
                             function () {
+                                okDiv.remove();
                                 $(stateLogin).html('Cargando perfil');
+                                $(icons).append(okProfile);
                                 workingLogin = false;
-                                resetFormLogin();
                                 setTimeout(
                                     function () {
                                         $("#login").modal('hide');
@@ -136,30 +138,36 @@
                                         $(buttonLogin).removeClass('loadingLogin');
                                         $(stateLogin).html('Iniciar sesión');
                                         window.location.href = '@Url.Action("Index", "Manage")';
-                                    }, 2000);
-                            }, 3000);
+                                    }, 4000);
+                            }, 4000);
                     },
-                    error: function (resultEmail) {
+                    error: function (resultLog) {
                         setTimeout(function () {
                             workingLogin = false;
-                            $(stateLogin).html('Ocurrio un error');
-                            var errorText = resultEmail.responseText.slice(1, resultEmail.responseText.length - 1);
-                            if (errorText === "Lockout") {
+                            $(stateLogin).removeClass('mt-2');
+                            $(stateLogin).html('Ocurrió un error');
+                            $(spinner).remove();
+                            $(icons).append(closeContain);
+                            var closeDiv = document.getElementsByClassName("closeDiv")[0];
+                            var errorText = resultLog.responseText.slice(1, resultLog.responseText.length - 1);
+                            if (errorText.includes("Lockout")) {
                                 window.location.href = '@Url.Action("Lockout", "Account")';
                             }
                             else {
                                 setTimeout(function () {
+                                    $(closeDiv).remove();
                                     $(buttonLogin).removeClass('loadingLogin');
                                     $(stateLogin).html('Iniciar sesión');
                                     var textErrors = document.getElementById("errors");
                                     textErrors.innerText = errorText;
-                                }, 3000);
+                                }, 4000);
                             }
-                        }, 3000);
+                        }, 4000);
                     }
                 });
             }
         });
+
     </script>
 
 }
