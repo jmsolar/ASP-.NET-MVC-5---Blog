@@ -20,7 +20,8 @@ namespace Futbolizando_Fútbol_Blog.Dtos
         [DataType(DataType.Password)]
         [Compare("Password")]
         public string RepeatPassword { get; set; }
-
-        public bool RememberMe { get; set; }
+		
+        [Required]
+        public string ProviderPassword { get; set; }
     }
 }
